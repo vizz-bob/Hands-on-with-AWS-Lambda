@@ -6,4 +6,11 @@ print('Loading function')
 def lambda_handler(event, context):
     myNumber = randint(0,100)
     print("Random No. [ %s ]" % myNumber)
-    return myNumber
+    return {
+        'body': {"Random Number": myNumber},
+        'headers': {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+            },
+        }
+
